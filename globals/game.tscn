@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfh26dv5xgqiw"]
+[gd_scene load_steps=6 format=3 uid="uid://bfh26dv5xgqiw"]
 
 [ext_resource type="Texture2D" uid="uid://dt3mkjy6cifqm" path="res://prototype-textures/PNG/Dark/texture_01.png" id="1_qdmn5"]
+[ext_resource type="PackedScene" uid="uid://tv2di7btgeo7" path="res://cj-3b/cj-3b.tscn" id="2_j4t3q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4t3q"]
 albedo_texture = ExtResource("1_qdmn5")
@@ -23,3 +24,5 @@ mesh = SubResource("BoxMesh_kap54")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FlatMap"]
 shape = SubResource("BoxShape3D_qdmn5")
+
+[node name="CJ3B" parent="." instance=ExtResource("2_j4t3q")]
