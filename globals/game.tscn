@@ -1,7 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfh26dv5xgqiw"]
+[gd_scene load_steps=9 format=3 uid="uid://bfh26dv5xgqiw"]
 
 [ext_resource type="Texture2D" uid="uid://dt3mkjy6cifqm" path="res://prototype-textures/PNG/Dark/texture_01.png" id="1_qdmn5"]
 [ext_resource type="PackedScene" uid="uid://tv2di7btgeo7" path="res://cj-3b/cj-3b.tscn" id="2_j4t3q"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j4t3q"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_3q0u3"]
+sky_material = SubResource("ProceduralSkyMaterial_j4t3q")
+
+[sub_resource type="Environment" id="Environment_ehmke"]
+background_mode = 2
+sky = SubResource("Sky_3q0u3")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4t3q"]
 albedo_texture = ExtResource("1_qdmn5")
@@ -16,8 +29,22 @@ size = Vector3(500, 1, 500)
 
 [node name="Game" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ehmke")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CameraGimbal" type="Node3D" parent="."]
+transform = Transform3D(-0.0238215, 0, 0.999716, 0, 1, 0, -0.999716, 0, -0.0238215, 3.34766, 2.50084, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraGimbal"]
+transform = Transform3D(0.99998, 0.00629749, 0.000847241, -0.00629749, 0.964424, 0.264286, 0.000847243, -0.264286, 0.964444, 0, 0, 0)
+
 [node name="FlatMap" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FlatMap"]
 mesh = SubResource("BoxMesh_kap54")
@@ -26,3 +53,4 @@ mesh = SubResource("BoxMesh_kap54")
 shape = SubResource("BoxShape3D_qdmn5")
 
 [node name="CJ3B" parent="." instance=ExtResource("2_j4t3q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19641, 0)
