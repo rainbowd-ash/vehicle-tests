@@ -37,7 +37,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="CameraGimbal" type="Node3D" parent="."]
-transform = Transform3D(-0.0238215, 0, 0.999716, 0, 1, 0, -0.999716, 0, -0.0238215, 3.34766, 2.50084, 0)
+transform = Transform3D(-0.0238215, 0, 0.999716, 0, 1, 0, -0.999716, 0, -0.0238215, 3.34766, 2.50084, -1.47699)
 
 [node name="Camera3D" type="Camera3D" parent="CameraGimbal"]
 transform = Transform3D(0.99998, 0.00629749, 0.000847241, -0.00629749, 0.964424, 0.264286, 0.000847243, -0.264286, 0.964444, 0, 0, 0)
@@ -53,4 +53,4 @@ mesh = SubResource("BoxMesh_kap54")
 shape = SubResource("BoxShape3D_qdmn5")
 
 [node name="CJ3B" parent="." instance=ExtResource("2_j4t3q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19641, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.0299, 0)

@@ -23,60 +23,62 @@ size = Vector3(1.10547, 0.523301, 0.0833926)
 
 [node name="CJ3B" type="RigidBody3D"]
 mass = 100.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.3, 0)
 continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("2_m8wq4")
 
 [node name="cj-3b" parent="." instance=ExtResource("2_jja8s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0132136, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0132136, 0)
 
 [node name="CollisionHood" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.974, 0.792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.974, -0.790019)
 shape = SubResource("BoxShape3D_jja8s")
 
 [node name="CollisionAxle" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 0.999998, -4.37113e-08, -0.00174533, 0.00174533, -7.62907e-11, 0.999998, -0.000793457, 0.587027, 0.417952)
+transform = Transform3D(-4.37114e-08, -1, 0, 0.999998, -4.37113e-08, -0.00174533, 0.00174533, -7.62907e-11, 0.999998, -0.000793457, 0.587027, -0.390638)
 shape = SubResource("BoxShape3D_ie1ew")
 
 [node name="CollisionBedFloor" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000793457, 0.450713, -0.95669)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000793457, 0.450713, 0.951994)
 shape = SubResource("BoxShape3D_f67qi")
 
 [node name="CollisionBedLeftWall" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.675932, 0.691649, -0.977277)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.675932, 0.691649, 1.0003)
 shape = SubResource("BoxShape3D_8vnf6")
 
 [node name="CollisionBedRightWall" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.684841, 0.687843, -0.989039)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.684841, 0.687843, 0.988542)
 shape = SubResource("BoxShape3D_8vnf6")
 
 [node name="CollisionBedBack" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00394177, 0.693477, -1.45245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00394177, 0.693477, 1.44372)
 shape = SubResource("BoxShape3D_bqj85")
 
 [node name="CollisionSeatBacks" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.94769, 0.319191, 0, -0.319191, 0.94769, 0, 0.936439, -0.618756)
+transform = Transform3D(1, 0, 0, 0, 0.950064, -0.312053, 0, 0.312053, 0.950064, 0, 0.936439, 0.60636)
 shape = SubResource("BoxShape3D_nb7bl")
 
 [node name="WheelRaycasts" type="Node3D" parent="."]
 
 [node name="RightFrontWheel" type="RayCast3D" parent="WheelRaycasts"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.545591, 0.596773, 0.966627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.545591, 0.596773, -0.850459)
 target_position = Vector3(0, -0.6, 0)
 collision_mask = 2
 
 [node name="LeftFrontWheel" type="RayCast3D" parent="WheelRaycasts"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546, 0.596773, 0.966627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546, 0.596773, -0.850459)
 target_position = Vector3(0, -0.6, 0)
 collision_mask = 2
 
 [node name="RightBackWheel" type="RayCast3D" parent="WheelRaycasts"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.545591, 0.596773, -0.879558)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.545591, 0.596773, 0.941855)
 target_position = Vector3(0, -0.6, 0)
 collision_mask = 2
 
 [node name="LeftBackWheel" type="RayCast3D" parent="WheelRaycasts"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546, 0.596773, -0.879558)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546, 0.596773, 0.941855)
 target_position = Vector3(0, -0.6, 0)
 collision_mask = 2
