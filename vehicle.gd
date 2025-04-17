@@ -1,7 +1,9 @@
 extends RigidBody3D
 class_name Vehicle
 
-# Wheel nodes (you can also export them if you like)
+@export var spring_strength : float = 4000.0
+@export var damping_strength : float = 300.0
+
 @onready var wheels = [
 	$WheelRaycasts/RightFrontWheel,
 	$WheelRaycasts/LeftFrontWheel,
@@ -9,29 +11,23 @@ class_name Vehicle
 	$WheelRaycasts/LeftBackWheel
 ]
 
-# How far down to cast the ray (like suspension length)
-var raycast_length := .6
-var spring_strength := 4000.0
-var damping_strength := 300.0
-
 func _physics_process(delta):
 	for wheel in wheels:
 		apply_suspension_force(wheel)
 
-func apply_suspension_force(wheel: Node3D):
+func apply_suspension_force(wheel : RayCast3D):
 	var origin = wheel.global_transform.origin
-	var ray_end = origin - Vector3.UP * raycast_length
+	var ray_end = origin + wheel.target_position
 	var query = PhysicsRayQueryParameters3D.create(origin, ray_end)
 	query.collide_with_areas = true
 	query.exclude = [self]
 
-	var space_state = get_world_3d().direct_space_state
-	var result = space_state.intersect_ray(query)
+	var result = get_world_3d().direct_space_state.intersect_ray(query)
 
 	if result:
 		var hit_position = result.position
 		var distance = origin.y - hit_position.y
-		var compression = clamp(1.0 - (distance / raycast_length), 0.0, 1.0)
+		var compression = clamp(1.0 - (distance / wheel.target_position.length()), 0.0, 1.0)
 
 		# Get point velocity of the vehicle at the wheel position
 		var point_velocity = linear_velocity + angular_velocity.cross(origin - global_transform.origin)
