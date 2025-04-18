@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu3umxmwagojc"]
+
+[ext_resource type="Script" uid="uid://dfp13ouc7lpsn" path="res://vehicle2.gd" id="1_7ngbq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ri3g2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ri3g2"]
+
+[node name="CubeVehicle" type="RigidBody3D"]
+script = ExtResource("1_7ngbq")
+spring_strength = 1000.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ri3g2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ri3g2")
+
+[node name="SuspensionRay" type="RayCast3D" parent="."]

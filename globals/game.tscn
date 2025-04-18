@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bfh26dv5xgqiw"]
 
 [ext_resource type="Texture2D" uid="uid://dt3mkjy6cifqm" path="res://prototype-textures/PNG/Dark/texture_01.png" id="1_qdmn5"]
-[ext_resource type="PackedScene" uid="uid://tv2di7btgeo7" path="res://cj-3b/cj-3b.tscn" id="2_j4t3q"]
+[ext_resource type="PackedScene" uid="uid://bu3umxmwagojc" path="res://cube_vehicle.tscn" id="2_j4t3q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j4t3q"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -52,5 +52,6 @@ mesh = SubResource("BoxMesh_kap54")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FlatMap"]
 shape = SubResource("BoxShape3D_qdmn5")
 
-[node name="CJ3B" parent="." instance=ExtResource("2_j4t3q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99652, 1.0299, 1.32117)
+[node name="CubeVehicle" parent="." instance=ExtResource("2_j4t3q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32473, 2.02294, 1.5639)
+damping = 100.0
