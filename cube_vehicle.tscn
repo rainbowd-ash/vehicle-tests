@@ -17,3 +17,4 @@ mesh = SubResource("BoxMesh_ri3g2")
 shape = SubResource("BoxShape3D_ri3g2")
 
 [node name="SuspensionRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.405315, 0)
